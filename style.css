@@ -1,71 +1,105 @@
-body {
+/* Reset margin and padding */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and container styling */
+body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(120deg, #ffe6f0, #fff0f5);
-  text-align: center;
-  overflow-x: hidden;
-}
-
-.typewriter {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3em;
-  color: #e91e63;
-  overflow: hidden;
-  border-right: .15em solid #e91e63;
-  white-space: nowrap;
-  margin: 50px auto;
-  animation: typing 4s steps(40, end), blink .75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-@keyframes blink {
-  from, to { border-color: transparent }
-  50% { border-color: #e91e63 }
-}
-
-/* Slideshow */
-.slideshow-container {
-  position: relative;
-  max-width: 400px;
-  margin: auto;
-}
-.slide {
-  display: none;
-  width: 100%;
-  border-radius: 15px;
-}
-
-/* Love letter */
-.love-letter {
-  margin-top: 20px;
-  font-size: 1.2em;
-  color: #333;
   padding: 20px;
+  background: #fff0f5;
+  color: #333;
+  line-height: 1.5;
 }
 
-/* Timeline */
-.timeline {
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Header styles */
+h1.name {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.sub {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Letter container */
+.letter-container {
   margin-top: 40px;
 }
-.event {
-  margin: 20px;
-  padding: 10px;
-  background: #fff;
-  border-radius: 10px;
+
+/* Letter box styles */
+.letter {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 25px;
+  border: 2px solid #f66;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(246, 102, 102, 0.3);
+  background: #fff0f5;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.6s ease;
 }
 
-/* Floating hearts */
-.hearts::before, .hearts::after {
-  content: "❤️";
-  position: fixed;
-  animation: floatHearts 10s infinite;
-  font-size: 2em;
-}
-@keyframes floatHearts {
-  0% { transform: translateY(100vh) translateX(0); opacity: 1; }
-  100% { transform: translateY(-10vh) translateX(20px); opacity: 0; }
+/* Closed letter style */
+.letter.closed {
+  background: #fce4ec;
 }
 
+/* Open letter style */
+.letter.open {
+  cursor: default;
+  animation: openLetterAnim 0.6s forwards;
+  display: block;
+}
+
+/* Open letter animation */
+@keyframes openLetterAnim {
+  from {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* Close button style */
+.letter button {
+  margin-top: 15px;
+  background: #f66;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.letter button:hover {
+  background: #d14545;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 400px) {
+  .letter {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  h1.name {
+    font-size: 1.5rem;
+  }
+}

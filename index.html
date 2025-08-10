@@ -1,53 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Pookie ❤️</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Pookie — From Lynx</title>
+  <meta name="description" content="A special love letter site for Pookie, crafted by Lynx.">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- Floating hearts animation -->
-<div class="hearts"></div>
+  <main class="container">
+    <header class="hero">
+      <div class="title-block">
+        <div class="initial" id="initial">P</div>
+        <div>
+          <h1 class="name">For Pookie</h1>
+          <p class="sub">A love letter from Lynx ❤</p>
+        </div>
+      </div>
+    </header>
 
-<!-- Typewriter intro -->
-<h1 class="typewriter">Pookie, You Are My Forever ❤️</h1>
+    <!-- Open Letter Section -->
+    <div class="letter-container">
+      <!-- Closed letter box -->
+      <div id="closedLetter" class="letter closed" onclick="openLetter()">
+        <p>Click to Open Your Love Letter 💌</p>
+      </div>
 
-<!-- Slideshow -->
-<div class="slideshow-container">
-  <img src="../assets/img/photo1.jpg" class="slide">
-  <img src="../assets/img/photo2.jpg" class="slide">
-  <img src="../assets/img/photo3.jpg" class="slide">
-</div>
+      <!-- Open letter box -->
+      <div id="openLetter" class="letter open" style="display:none;">
+        <h2>My Dear Pookie,</h2>
+        <p>
+          Every moment with you feels like a dream I never want to wake from.  
+          You light up my world with your smile and warmth.  
+          I made this special letter just for you to show how deeply I care.  
+        </p>
+        <p>
+          Love, <br />
+          Lynx ❤️
+        </p>
+        <button onclick="closeLetter()">Close Letter</button>
+      </div>
+    </div>
+  </main>
 
-<!-- Love letter -->
-<div class="love-letter">
-  <p>From the moment we met, every second with you has been the most beautiful chapter of my life. You are my sunshine, my safe place, my dream come true. I am forever grateful for you, Pookie. 💌</p>
-</div>
+  <script>
+    function openLetter() {
+      document.getElementById('closedLetter').style.display = 'none';
+      const openLetterDiv = document.getElementById('openLetter');
+      openLetterDiv.style.display = 'block';
+      openLetterDiv.classList.remove('open');
+      void openLetterDiv.offsetWidth; // Trigger reflow for animation
+      openLetterDiv.classList.add('open');
+    }
 
-<!-- Timeline -->
-<div class="timeline">
-  <div class="event">
-    <h3>2 Weeks Ago</h3>
-    <p>You proposed, and my heart has been smiling ever since.</p>
-  </div>
-  <div class="event">
-    <h3>Today</h3>
-    <p>We are closer than ever — my love for you grows each day.</p>
-  </div>
-  <div class="event">
-    <h3>Forever</h3>
-    <p>I promise to love you endlessly.</p>
-  </div>
-</div>
-
-<!-- Music -->
-<audio autoplay loop>
-  <source src="../assets/audio/music.mp3" type="audio/mpeg">
-</audio>
-
-<script src="script.js"></script>
+    function closeLetter() {
+      document.getElementById('openLetter').style.display = 'none';
+      document.getElementById('closedLetter').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
