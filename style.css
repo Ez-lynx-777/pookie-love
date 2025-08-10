@@ -103,3 +103,22 @@ h1.name {
     font-size: 1.5rem;
   }
 }
+
+.slideshow-container {
+  position: relative;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.slide {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  position: relative;
+}
+
